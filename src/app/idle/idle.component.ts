@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-// import { Router } from '@angular/router';
-// import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
-// import { KaraokeService, Song } from '../../../lib/karaoke.service';
+import { KaraokeService, Song } from '../shared/service/karaoke.service';
 
 @Component({
   selector: 'karaoke-idle',
@@ -10,21 +10,22 @@ import { Component } from '@angular/core';
   templateUrl: 'idle.component.html',
 })
 export class IdleComponent {
-    // private queueSub: Subscription;
 
-    // constructor(private karaoke: KaraokeService, private router: Router) {}
+    private songQueueSub: Subscription;
 
-    // ngOnInit() {
-      // this.queueSub = this.karaoke.songQueue.subscribe((queue) => this.onQueueChange(queue));
-    // }
+    constructor(private karaoke: KaraokeService, private router: Router) {}
 
-    // ngOnDestroy() {
-      // this.queueSub.unsubscribe();
-    // }
+    ngOnInit() {
+      this.songQueueSub = this.karaoke.songQueue.subscribe(queue => this.parseQueue(queue))
+    }
 
-    // private onQueueChange(queue: Array<Song>) {
-    //   if (queue.length > 0) {
-    //     this.router.navigateByUrl('/next-song');
-    //   }
-    // }
+    ngOnDestroy() {
+      this.songQueueSub.unsubscribe();
+    }
+
+    parseQueue(queue: Song[]) {
+      if (queue && queue.length > 0) {
+        this.router.navigateByUrl('/next-song')
+      }
+    }
 }
