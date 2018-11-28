@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { IdleComponent } from './idle/idle.component';
 import { NextSongComponent } from './next-song/next-song.component';
+import { PlayerComponent } from './player/player.component';
 
 import { DataService } from './shared/service/data.service';
 import { ElectronService } from './shared/service/electron.service';
@@ -14,6 +15,7 @@ import { VoiceService } from './shared/service/voice.service';
 const appRoutes: Routes = [
   { path: 'idle', component: IdleComponent },
   { path: 'next-song', component: NextSongComponent },
+  { path: 'player', component: PlayerComponent },
   { path: '**', redirectTo: 'idle' }
 ];
 
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     IdleComponent,
-    NextSongComponent
+    NextSongComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
