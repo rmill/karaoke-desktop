@@ -23,7 +23,7 @@
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
     "cross-env": "^5.2.0",
-    "electron": "^3.0.10",
+    "electron": "^15.5.5",
     "firebase-admin": "^6.2.0",
     "rxjs": "~6.2.0",
     "youtube-player": "^5.5.1",
