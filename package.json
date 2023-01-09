@@ -24,7 +24,7 @@
     "core-js": "^2.5.4",
     "cross-env": "^5.2.0",
     "electron": "^3.0.10",
-    "firebase-admin": "^6.2.0",
+    "firebase-admin": "^11.4.1",
     "rxjs": "~6.2.0",
     "youtube-player": "^5.5.1",
     "zone.js": "~0.8.26"
